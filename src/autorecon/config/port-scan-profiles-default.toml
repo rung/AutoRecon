@@ -3,13 +3,13 @@
     [default.nmap-quick]
 
         [default.nmap-quick.service-detection]
-        command = 'nmap {nmap_extra} -sV --script="banner,default" --script-args=banner.timeout=15s --version-all -oN "{scandir}/_quick_tcp_nmap.txt" -oX "{scandir}/xml/_quick_tcp_nmap.xml" {address}'
+        command = 'nmap {nmap_extra} -sV -sC --version-all -oN "{scandir}/_quick_tcp_nmap.txt" -oX "{scandir}/xml/_quick_tcp_nmap.xml" {address}'
         pattern = '^(?P<port>\d+)\/(?P<protocol>(tcp|udp))(.*)open(\s*)(?P<service>[\w\-\/]+)(\s*)(.*)$'
 
     [default.nmap-full-tcp]
 
         [default.nmap-full-tcp.service-detection]
-        command = 'nmap {nmap_extra} -A --osscan-guess --script="banner,default" --script-args=banner.timeout=15s --version-all -p- -oN "{scandir}/_full_tcp_nmap.txt" -oX "{scandir}/xml/_full_tcp_nmap.xml" {address}'
+        command = 'nmap {nmap_extra} -A --osscan-guess --version-all -p- -oN "{scandir}/_full_tcp_nmap.txt" -oX "{scandir}/xml/_full_tcp_nmap.xml" {address}'
         pattern = '^(?P<port>\d+)\/(?P<protocol>(tcp|udp))(.*)open(\s*)(?P<service>[\w\-\/]+)(\s*)(.*)$'
 
     [default.nmap-top-20-udp]
