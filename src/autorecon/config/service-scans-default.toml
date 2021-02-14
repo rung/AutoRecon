@@ -450,15 +450,19 @@ service-names = [
 
     [[smb.scan]]
     name = 'smbmap-share-permissions'
-    command = 'smbmap -H {address} -P {port} 2>&1 | tee -a "{scandir}/smbmap-share-permissions.txt"; smbmap -u null -p "" -H {address} -P {port} 2>&1 | tee -a "{scandir}/smbmap-share-permissions.txt"'
+    command = 'smbmap -H {address} -P {port} 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-share-permissions.txt"; smbmap -u null -p "" -H {address} -P {port} 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-share-permissions.txt"'
 
     [[smb.scan]]
-    name = 'smbmap-list-contents'
-    command = 'smbmap -H {address} -P {port} -R 2>&1 | tee -a "{scandir}/smbmap-list-contents.txt"; smbmap -u null -p "" -H {address} -P {port} -R 2>&1 | tee -a "{scandir}/smbmap-list-contents.txt"'
+    name = 'smbmap-list-contents-recursive'
+    command = 'smbmap -H {address} -P {port} -R 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-list-contents-recursive.txt"; smbmap -u null -p "" -H {address} -P {port} -R 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-list-contents-recursive.txt"'
+
+    [[smb.scan]]
+    name = 'smbmap-list-contents-topdir'
+    command = 'smbmap -H {address} -P {port} -r 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-list-contents-topdir.txt"; smbmap -u null -p "" -H {address} -P {port} -r 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-list-contents-topdir.txt"'
 
     [[smb.scan]]
     name = 'smbmap-execute-command'
-    command = 'smbmap -H {address} -P {port} -x "ipconfig /all" 2>&1 | tee -a "{scandir}/smbmap-execute-command.txt"; smbmap -u null -p "" -H {address} -P {port} -x "ipconfig /all" 2>&1 | tee -a "{scandir}/smbmap-execute-command.txt"'
+    command = 'smbmap -H {address} -P {port} -x "ipconfig /all" 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-execute-command.txt"; smbmap -u null -p "" -H {address} -P {port} -x "ipconfig /all" 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-execute-command.txt"'
 
     [[smb.manual]]
     description = 'Nmap scans for SMB vulnerabilities that could potentially cause a DoS if scanned (according to Nmap). Be careful:'
