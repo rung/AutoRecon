@@ -1,6 +1,15 @@
-[![Packaging status](https://repology.org/badge/vertical-allrepos/autorecon.svg)](https://repology.org/project/autorecon/versions)
+# (Added by @rung) Forked version of AutoRecon
 
-> It's like bowling with bumpers. - [@ippsec](https://twitter.com/ippsec)
+This is a forked version of AutoRecon for my personal use.
+It's intended to be used on Docker.([Docker Hub](https://hub.docker.com/repository/docker/suezawa/autorecon))
+
+```bash
+# Confirming netowork connectivity using popular 30 ports.
+docker run -it --rm --entrypoint=nmap suezawa/autorecon --top-ports 30 -open <ip>
+
+# Start scanning
+docker run -it -v $HOME/autorecon/:/results suezawa/autorecon -v <ip>
+```
 
 # AutoRecon
 
