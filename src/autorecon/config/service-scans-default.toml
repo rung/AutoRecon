@@ -131,7 +131,11 @@ ignore-service-names = [
 
     [[http.scan]]
     name = 'gobuster'
-    command = 'if [[ `gobuster -h 2>&1 | grep -F "mode (dir)"` ]]; then gobuster -u {scheme}://{address}:{port}/ -w /usr/share/seclists/Discovery/Web-Content/common.txt -e -k -l -s "200,204,301,302,307,401,403" -x "txt,html,php,asp,aspx,jsp" -o "{scandir}/{protocol}_{port}_{scheme}_gobuster.txt"; else gobuster dir -u {scheme}://{address}:{port}/ -w /usr/share/seclists/Discovery/Web-Content/common.txt -z -k -l -x "txt,html,php,asp,aspx,jsp" -o "{scandir}/{protocol}_{port}_{scheme}_gobuster.txt"; fi'
+    commands = [
+        'gobuster dir -u {scheme}://{address}:{port}/ -w /usr/share/seclists/Discovery/Web-Content/common.txt -z -t 20 -k -l -x "txt,html,htm,php,asp,aspx,jsp" -o "{scandir}/{protocol}_{port}_{scheme}_gobuster_webcommon.txt"',
+        'gobuster dir -u {scheme}://{address}:{port}/ -w /usr/share/dirb/wordlists/big.txt -z -t 20 -k -l -x "txt,html,htm,php,asp,aspx,jsp" -o "{scandir}/{protocol}_{port}_{scheme}_gobuster_dirb_big.txt"'
+    ]
+    command = 
 
     [[http.manual]]
     description = '(dirsearch) Multi-threaded recursive directory/file enumeration for web servers using various wordlists:'
