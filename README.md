@@ -4,7 +4,7 @@ This is a forked version of AutoRecon for my personal use.
 It's intended to be used on Docker.([Docker Hub](https://hub.docker.com/repository/docker/suezawa/autorecon))
 
 ```bash
-# Confirming netowork connectivity using popular 30 ports.
+# Confirming network connectivity using popular 30 ports.
 docker run -it --rm --entrypoint=nmap suezawa/autorecon --top-ports 30 -open <ip>
 
 # Start scanning
