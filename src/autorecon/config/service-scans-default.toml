@@ -135,7 +135,6 @@ ignore-service-names = [
         'gobuster dir -u {scheme}://{address}:{port}/ -w /usr/share/seclists/Discovery/Web-Content/common.txt -z -t 20 -k -l -x "txt,html,htm,php,asp,aspx,jsp" -o "{scandir}/{protocol}_{port}_{scheme}_gobuster_webcommon.txt"',
         'gobuster dir -u {scheme}://{address}:{port}/ -w /usr/share/dirb/wordlists/big.txt -z -t 20 -k -l -x "txt,html,htm,php,asp,aspx,jsp" -o "{scandir}/{protocol}_{port}_{scheme}_gobuster_dirb_big.txt"'
     ]
-    command = 
 
     [[http.manual]]
     description = '(dirsearch) Multi-threaded recursive directory/file enumeration for web servers using various wordlists:'
