@@ -14,4 +14,5 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 RUN echo "Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/kali/.local/bin"" >> /etc/sudoers
 RUN sed -i -e 's/^MinProtocol =.*$/MinProtocol = SSLv3/g' -e 's/DEFAULT@SECLEVEL=[0-9]/DEFAULT@SECLEVEL=0/g' /etc/ssl/openssl.cnf
+
 ENTRYPOINT ["autorecon"]
