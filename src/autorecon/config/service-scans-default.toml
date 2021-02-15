@@ -458,7 +458,7 @@ service-names = [
 
     [[smb.scan]]
     name = 'smbmap-list-contents-recursive'
-    command = 'timeout -v 10m smbmap -H {address} -P {port} -R 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-list-contents-recursive.txt"; timeout -v 10m smbmap -u null -p "" -H {address} -P {port} -R 2>&1 | tee -a "{scandir}/{protocol}_{port}_smbmap-list-contents-recursive.txt"'
+    command = 'timeout -v 10m smbmap -H {address} -P {port} -R >> "{scandir}/{protocol}_{port}_smbmap-list-contents-recursive.txt" 2>&1; timeout -v 10m smbmap -u null -p "" -H {address} -P {port} -R >> "{scandir}/{protocol}_{port}_smbmap-list-contents-recursive.txt" 2>&1'
 
     [[smb.scan]]
     name = 'smbmap-list-contents-topdir'
