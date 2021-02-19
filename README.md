@@ -1,7 +1,7 @@
 # (Added by @rung) Forked version of AutoRecon
 
 This is a forked version of AutoRecon for my personal use.
-It's intended to be used on Docker.([Docker Hub](https://hub.docker.com/repository/docker/suezawa/autorecon))
+It's intended to be used on Docker.([Docker Hub](https://hub.docker.com/r/suezawa/autorecon))
 
 ```bash
 # Confirming network connectivity using popular 30 ports.
