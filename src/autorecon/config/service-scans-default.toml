@@ -135,7 +135,7 @@ ignore-service-names = [
 
     [[http.scan]]
     name = 'wpscan'
-    command = 'wpscan --url {scheme}://{address}:{port} --enumerate vp,vt,u,p,t -o {scandir}/{protocol}_{port}_{scheme}_wpscan.txt'
+    command = 'wpscan --url {scheme}://{address}:{port} -e --plugins-detection=mixed -t 20 -o {scandir}/{protocol}_{port}_{scheme}_wpscan.txt'
 
     [[http.scan]]
     name = 'droopescan'
