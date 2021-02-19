@@ -139,7 +139,7 @@ ignore-service-names = [
 
     [[http.scan]]
     name = 'droopescan'
-    command = 'droopescan scan drupal -u {scheme}://{address}:{port} -t 32'
+    command = 'droopescan scan drupal -u {scheme}://{address}:{port} -t 20 2>&1 | tee "{scandir}/{protocol}_{port}_{scheme}_droopescan.txt"'
 
     [[http.scan]]
     name = 'gobuster-webcommon'
