@@ -134,6 +134,14 @@ ignore-service-names = [
     command = 'nikto -ask=no -h {scheme}://{address}:{port} 2>&1 | tee "{scandir}/{protocol}_{port}_{scheme}_nikto.txt"'
 
     [[http.scan]]
+    name = 'wpscan'
+    command = 'wpscan --url {scheme}://{address}:{port} --enumerate vp,vt,u,p,t -o {scandir}/{protocol}_{port}_{scheme}_wpscan.txt'
+
+    [[http.scan]]
+    name = 'droopescan'
+    command = 'droopescan scan drupal -u {scheme}://{address}:{port} -t 32'
+
+    [[http.scan]]
     name = 'gobuster-webcommon'
     command = 'gobuster dir -u {scheme}://{address}:{port}/ -w /usr/share/seclists/Discovery/Web-Content/common.txt -z -t 20 -k -l -x "txt,html,htm,php,asp,aspx,jsp" -o "{scandir}/{protocol}_{port}_{scheme}_gobuster_webcommon.txt"'
 
