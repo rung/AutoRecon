@@ -77,6 +77,10 @@ service-names = [
         description = 'Anonymous FTP Enabled!'
         pattern = 'Anonymous FTP login allowed'
 
+    [[ftp.scan]]
+    name = 'wget all (anonymous login)'
+    command = 'wget -m ftp://anonymous:anonymous@{address} -P "{scandir}/ftp/"'
+
     [[ftp.manual]]
     description = 'Bruteforce logins:'
     commands = [
