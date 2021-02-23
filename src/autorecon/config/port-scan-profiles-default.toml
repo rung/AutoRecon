@@ -12,10 +12,10 @@
         command = 'nmap {nmap_extra} -A --osscan-guess --version-all -p- -oN "{scandir}/_full_tcp_nmap.txt" -oX "{scandir}/xml/_full_tcp_nmap.xml" {address}'
         pattern = '^(?P<port>\d+)\/(?P<protocol>(tcp|udp))(.*)open(\s*)(?P<service>[\w\-\/]+)(\s*)(.*)$'
 
-    [default.nmap-top-20-udp]
+    [default.nmap-top-50-udp]
 
-        [default.nmap-top-20-udp.service-detection]
-        command = 'nmap {nmap_extra} -sU -A --top-ports=20 --version-all -oN "{scandir}/_top_20_udp_nmap.txt" -oX "{scandir}/xml/_top_20_udp_nmap.xml" {address}'
+        [default.nmap-top-50-udp.service-detection]
+        command = 'nmap {nmap_extra} -sU -A --top-ports=50 --version-all -oN "{scandir}/_top_50_udp_nmap.txt" -oX "{scandir}/xml/_top_50_udp_nmap.xml" {address}'
         pattern = '^(?P<port>\d+)\/(?P<protocol>(tcp|udp))(.*)open(\s*)(?P<service>[\w\-\/]+)(\s*)(.*)$'
 
 [quick]
