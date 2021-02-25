@@ -16,7 +16,7 @@
 
         [default.nmap-top-50-udp.service-detection]
         command = 'nmap {nmap_extra} -sU -A --top-ports=50 --version-all -oN "{scandir}/_top_50_udp_nmap.txt" -oX "{scandir}/xml/_top_50_udp_nmap.xml" {address}'
-        pattern = '^(?P<port>\d+)\/(?P<protocol>(tcp|udp))(.*)open(\s*)(?P<service>[\w\-\/]+)(\s*)(.*)$'
+        pattern = '^(?P<port>\d+)\/(?P<protocol>(tcp|udp))(.*)(open|open\|filtered)(\s*)(?P<service>[\w\-\/]+)(\s*)(.*)$'
 
 [quick]
 
