@@ -5,10 +5,10 @@ It's intended to be used on Docker.([Docker Hub](https://hub.docker.com/r/suezaw
 
 ```bash
 # Confirming network connectivity using popular 30 ports.
-docker run -it --rm --entrypoint=nmap suezawa/autorecon --top-ports 30 -open <ip>
+docker run --network host -it --rm --entrypoint=nmap suezawa/autorecon --top-ports 30 -open <ip>
 
 # Start scanning
-docker run -it -v $HOME/autorecon/:/results suezawa/autorecon -v <ip>
+docker run --network host -it -v $HOME/autorecon/:/results suezawa/autorecon -v <ip>
 ```
 
 # AutoRecon
