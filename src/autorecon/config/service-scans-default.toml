@@ -586,6 +586,10 @@ service-names = [
     name = 'nmap-tftp'
     command = 'nmap {nmap_extra} -p {port} --script="tftp-enum" -oN "{scandir}/{protocol}_{port}_tftp-nmap.txt" -oX "{scandir}/xml/{protocol}_{port}_tftp_nmap.xml" {address}'
 
+    [[tftp.scan]]
+    name = 'nmap-tftp-custom'
+    command = 'nmap {nmap_extra} -p {port} --script="tftp-enum" -script-args tftp-enum.filelist=nselib/custom-data/tftp.txt -oN "{scandir}/{protocol}_{port}_tftp-nmap.txt" -oX "{scandir}/xml/{protocol}_{port}_tftp_nmap.xml" {address}'
+
 [vnc]
 
 service-names = [
